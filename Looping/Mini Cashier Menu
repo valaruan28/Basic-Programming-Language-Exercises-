@@ -1,0 +1,97 @@
+// BPD0303_13_17.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+    Goal    : Create a Simple Cashier Program
+    Program : Looping of Selected Input and Change Status
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int jumlah1117, total1117, uang1117, harga1317, sisa1117;
+    char pil1117;
+    do
+    {
+        // Judul Program
+        cout << "===" << " Program Kasir Sederhana " << "===" << "\n" << endl;
+
+        cout << "Menu Barang" << endl;
+        cout << "\n";
+
+        //Konstanta untuk Harga Barang A-E
+        const int barangA = 10000; cout << "Barang A = " << barangA << endl;
+        const int barangB = 15000; cout << "Barang B = " << barangB << endl;
+        const int barangC = 12500; cout << "Barang C = " << barangC << endl;
+        const int barangD = 17500; cout << "Barang D = " << barangD << endl;
+        const int barangE = 20000; cout << "Barang E = " << barangE << endl;
+        cout << "Keluar = X";
+            cout << "\n";
+
+        // Pilihan Barang Dimasukkan melalui Keyboard
+        cout << "Masukkan Pilihan A/B/C/D/E/X: ";
+        cin >> pil1117;
+
+        if (pil1117 == 'X' || pil1117 == 'x') break;
+
+        switch (pil1117)
+        {
+        case 'a':
+        case 'A':
+             harga1317 = barangA ; break;
+
+        case 'b':
+        case 'B':
+            harga1317 = barangB ; break;
+
+        case 'c':
+        case 'C':
+            harga1317 = barangC ; break;
+
+        case 'd':
+        case 'D':
+            harga1317 = barangD ; break;
+
+        case 'e':
+        case 'E':
+            harga1317 = barangE ; break;
+
+        default:cout << "Ulangi pilihan hanya huruf A-E dan X\n" << endl; continue;
+        }
+
+        // Jumlah Barang Dimasukkan melalui Keyboard
+        cout << "Masukkan Jumlah Barang yang Ingin Dibeli : ";
+        cin >> jumlah1117;
+        cout << "\n";
+
+        //Total yang Harus Dibayarkan 
+        total1117 = jumlah1117 * harga1317;
+        cout << "Total yang Harus Dibayarkan : " << total1117 << endl;
+
+        //Jumlah Uang Dimasukkan User Melalui Keyboard
+        cout << "Masukkan Uang Anda : ";
+        cin >> uang1117; 
+        cout << "\n";
+
+        //Menampilkan Uang Kurang/Uang Pas/Uang Kembalian
+        if (total1117 > uang1117)
+            {
+                sisa1117 = uang1117 - total1117;
+                cout << "Maaf uang Anda kurang = " << sisa1117 <<"\n"<< endl; continue;
+            }
+        else if (uang1117 == total1117)
+            {
+                cout << "Terima Kasih. Uang Anda sama dengan yang harus dibayarkan" << "\n" << endl;
+            }
+        else 
+            {
+                sisa1117 = uang1117 - total1117;
+                cout << "Kembalian = " << sisa1117 << "\n" << endl;
+            }
+
+    // Menampilkan Proses Selesai Apabila Input "X"
+    } while (pil1117 != 'X' || pil1117 != 'x');
+    cout << "Proses Selesai...." << endl;
+
+    return 0;
+}
