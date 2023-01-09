@@ -1,0 +1,115 @@
+// BPD_UTS_1_13.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+    Goal    : Create a Shopping Cashier Program
+    Program : Loop Input Type of Day, Number of Items, Total Payment, Amount of Money, Payment, and Reprocessing
+*/
+
+#include <iostream>
+using namespace std;
+
+void header()
+    {
+       // Judul Program
+        cout << "==" << " Program Kasir Belanja " << "==\n" << endl;
+    }
+
+int main()
+{
+    int jumlah13, total13, uang13, harga13, sisa13, hargasayur13;
+    double beras13, daging13, gula13, minyak13;
+    char pil13;
+
+    //Konstanta untuk Harga Barang
+    #define  hargaberas13 15000
+    #define  hargadaging13 140000
+    #define  hargagula13 12500
+    #define  hargaminyak13 18000
+
+    
+    do
+    {
+        header();
+
+        cout << "MENU" << endl;
+        cout << "S   |" << "  Senin  |" << endl;
+        cout << "R   |" << "  Rabu   |" << endl; 
+        cout << "J   |" << "  Jumat  |\n" << endl;
+
+        // Pilihan Barang Dimasukkan melalui Keyboard
+        cout << "Pilihan [S/R/J]\t\t: ";
+        cin >> pil13;
+
+        switch (pil13)
+        {
+            
+        case 's':
+        case 'S':
+            cout << "Banyaknya Beras (kg)\t: ";
+            cin >> beras13;
+            cout << "Banyaknya Daging (kg)\t: ";
+            cin >> daging13;
+            total13 = (hargaberas13*beras13) + (hargadaging13*daging13);
+            break;
+
+        case 'r':
+        case 'R':
+            cout << "Banyaknya Beras (kg)\t: ";
+            cin >> beras13;
+            cout << "Banyaknya Gula (kg)\t: ";
+            cin >> gula13;
+            cout << "Banyaknya Minyak (liter)\t: ";
+            cin >> minyak13;
+            total13 = (hargaberas13 * beras13) + (hargagula13*gula13)+(hargaminyak13*minyak13);
+            break;
+
+        case 'j':
+        case 'J':
+            cout << "Banyaknya Beras (kg)\t: ";
+            cin >> beras13;
+            cout << "Harga Sayuran (termasuk bumbu dapur)\t: Rp ";
+            cin >> hargasayur13;
+            total13 = (hargaberas13 * beras13) + (hargasayur13);
+            break;
+
+        default:cout << "Ulangi pilihan hanya huruf S/R/J dan X\n" << endl; continue;
+        }
+
+
+        //Total yang Harus Dibayarkan 
+        cout << "\nTotal Belanja\t\t: Rp " << total13 <<  endl;
+
+        do
+        {
+        //Jumlah Uang Dimasukkan User Melalui Keyboard
+            cout << "Pembayaran\t\t: Rp ";
+            cin >> uang13;
+           
+        //Menampilkan Uang Kurang/Uang Pas/Uang Kembalian
+        if (total13 > uang13)
+            {
+                sisa13 = total13 - uang13 ;
+                cout << "Maaf kurang bayar\t: Rp  " << sisa13 << "\n" << endl; continue;
+            }
+        
+        if (uang13 == total13)
+            {
+            cout << "Uang Anda Pas" << "\n" << endl; 
+            }
+        else if (total13 < uang13)
+            {
+                sisa13 = uang13 - total13;
+                cout << "Kembalian\t\t:  Rp " << sisa13 << "\n" << endl; break;
+            }
+        } while (uang13 < total13);
+
+         //Menampilkan Proses Ulang 
+         cout << "Ulang Proses [Y/T]\t: ";
+         cin >> pil13;
+         if (pil13 == 'T' || pil13 == 't') break;
+        
+    // Menampilkan Proses Selesai Apabila Input 't' atau 'T'
+    } while (pil13 != 'T' && pil13 != 't');
+    cout << "Proses Selesai...." << endl;
+
+    return 0;
+}
