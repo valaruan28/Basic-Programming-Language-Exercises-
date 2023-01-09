@@ -1,0 +1,165 @@
+// BPD_UTS_2_13.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+    Goal    : Make a Looping Program
+    Program : Futsal Field Rental Cashier: Name Input, Choice Input Loop, Discount Input Loop, and Calculation Result Output
+*/
+
+#include <iostream>
+using namespace std;
+
+void header() 
+{
+    // Judul Program
+    cout << "=======================================================================" << endl;
+    cout << "------------------" << " Program Penyewaan Lapangan Futsal " << "------------------" << endl;
+    cout << "=======================================================================\n" << endl;
+}
+
+
+int main()
+{   
+    char nama13[30];
+    int jam13, total13, uang13, harga13, sisa13;
+    char pil13, member13;
+    do
+    {
+        header();
+        //Konstanta untuk Harga Barang A-E
+        const int lapanganA = 200000; cout << "|    A    |" << "\tLapangan Futsal Vinyl\t\t\t|" << "    Rp\t" << lapanganA << endl;
+        const int lapanganB = 180000; cout << "|    B    |" << "\tLapangan Futsal Parquette\t\t|" << "    Rp\t" << lapanganB << endl;
+        const int lapanganC = 150000; cout << "|    C    |" << "\tLapangan Futsal Taraflex\t\t|" << "    Rp\t" << lapanganC << endl;
+        const int lapanganD = 120000; cout << "|    D    |" << "\tLapangan Futsal Rumput Sintetis\t\t|" << "    Rp\t" << lapanganD << endl;
+        const int lapanganE = 100000; cout << "|    E    |" << "\tLapangan Futsal Semen\t\t\t|" << "    Rp\t" << lapanganE << endl;
+        cout << "|    X    |" << "\tKeluar dari Menu\t\t\t\n" << endl;
+
+        cout << "=======================================================================\n" << endl;
+
+        // Pilihan Barang Dimasukkan melalui Keyboard
+        cout << "Jenis Lapangan A/B/C/D/E/ atau X\t:  ";
+        cin >> pil13;
+
+        if (pil13 == 'X' || pil13 == 'x') break;
+
+        switch (pil13)
+        {
+        case 'a':
+        case 'A':
+            harga13 = lapanganA; break;
+
+        case 'b':
+        case 'B':
+            harga13 = lapanganB; break;
+
+        case 'c':
+        case 'C':
+            harga13 = lapanganC; break;
+
+        case 'd':
+        case 'D':
+            harga13 = lapanganD; break;
+
+        case 'e':
+        case 'E':
+            harga13 = lapanganE; break;
+
+        default:cout << "Ulangi pilihan hanya huruf A-E dan X\n" << endl; continue;
+        }
+
+        // Jumlah Barang Dimasukkan melalui Keyboard
+        do {
+            cout << "Lama Waktu Penyewaan (jam)\t\t:  ";
+            cin >> jam13;
+            if (jam13 >= 3) {
+                harga13 = 0.9 * harga13; break;
+            }
+        } while (jam13 <= 0);
+        
+        //Memasukkan Nama Penyewa
+        cout << "Nama Depan Penyewa Lapangan Futsal\t:  ";
+        cin >> nama13;
+
+        cout << "\n====================   Struk Sewa Lapangan Futsal   ===================\n" << endl;
+
+        //Menampilkan Nama Penyewa
+        cout << "Nama Penyewa\t\t\t:  " << nama13 << endl;
+
+        // Menampilkan Jenis Penyewa Lapangan
+        cout << "Jenis Lapangan\t\t\t:  ";
+        {
+            if (pil13 == 'a' || pil13 == 'A') {
+                cout << "Lapangan Futsal Vinyl" << endl;
+            }
+            if (pil13 == 'b' || pil13 == 'B') {
+                cout << "Lapangan Futsal Parquette" << endl;
+            }
+            if (pil13 == 'c' || pil13 == 'C') {
+                cout << "Lapangan Futsal Taraflex" << endl;
+            }
+            if (pil13 == 'd' || pil13 == 'D') {
+                cout << "Lapangan Futsal Rumput Sintetis" << endl;
+            }
+            if (pil13 == 'e' || pil13 == 'E') {
+                cout << "Lapangan Futsal Semen" << endl;
+            }
+        }
+
+        // Menampilkan Lama Waktu Penyewaan
+        cout << "Durasi Waktu (jam)\t\t:  " << jam13 << endl;
+
+        //Total yang Harus Dibayarkan 
+        total13 = jam13 * harga13;
+        cout << "Subtotal Biaya Sewa\t\t:  Rp  " << total13 << endl;
+
+        //Menampilkan Diskon Kartu Member
+        do
+        {
+            cout << "Memiliki Kartu Member [Y/T] ?\t:  ";
+            cin >> member13;
+            cout << "\n";
+
+            if (member13 == 'y' || member13 == 'Y')
+
+            {
+                total13 = total13 - 10000;
+                cout << "### Selamat Anda Mendapatkan Potongan Member Sebesar Rp 10.0000 ###\n"; break;
+            }
+
+            if (member13 == 't' || member13 == 'T')
+            {
+                cout << "Maaf Anda Tidak Mendapatkan Potongan Member\n"; break;
+            }
+            
+                
+        } while (member13 != 't' || member13 != 'T' && member13 != 'y' || member13 != 'Y');
+
+        // Total yang Harus Dibayarkan
+        cout << "\nTotal Pembayaran\t\t:  Rp  " << total13 << endl;
+
+        //Jumlah Uang Dimasukkan User Melalui Keyboard
+        cout << "Jumlah Uang\t\t\t:  Rp  ";
+        cin >> uang13;
+        cout << "\n";
+
+        //Menampilkan Uang Kurang/Uang Pas/Uang Kembalian
+        if (total13 > uang13) {
+            sisa13 = uang13 - total13;
+            cout << "Maaf uang Anda kurang\t\t:  Rp   " << sisa13 << "\n" << endl; continue;
+        }
+        else if (uang13 == total13) {
+            cout << "Terima Kasih. Uang Anda sama dengan yang harus dibayarkan" << "\n" << endl;
+        }
+        else {
+            sisa13 = uang13 - total13;
+            cout << "\nKembalian\t\t\t:  Rp  " << sisa13 << "\n" << endl;
+        }
+
+        cout << "***************************" << "  Terima Kasih  " << "****************************\n" << endl;
+        cout << "=======================================================================" << endl;
+        cout << "                        ---Closed Bill---                                    \n" << endl;
+
+    // Menampilkan Proses Selesai Apabila Input "X"
+    }while (pil13 != 'X' || pil13 != 'x');
+        cout << "\nProses Selesai...." << endl;
+
+    return 0;   
+}
