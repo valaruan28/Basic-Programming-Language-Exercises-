@@ -1,0 +1,27 @@
+// BPD0302_13.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+    Goal    : Make a Looping Program
+    Program : Displays Multiples of 2 from 20 to 2 (Descending)
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //Mendeklarasi Variabel "bil13" dengan Tipe Data Integer
+    int bil13;
+
+    //Melakukan Perulangan "for"
+    for (bil13 = 10; bil13 > 0; bil13--)
+    {
+        //Melakukan Statement "if" pada Variabel "bil13"
+        if (bil13 == 0)
+            break;
+
+        //Melakukan Perkalian 2 Setiap Bilangan dari "bil13"
+        cout << bil13 * 2 << "\t";
+    }
+
+    return 0;
+}
