@@ -1,0 +1,54 @@
+// Latihan130401_13.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+   Goal     : Make a Repetition Program
+   Program  : Calculating the Average of Odd, Even, and Whole Numbers
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //Inisialisasi Variabel
+    int batas13, bil13, genap13 = 0, sumgenap13 = 0, ganjil13 = 0, sumganjil13 = 0, sum13 = 0;
+    double ratasemua13;
+
+    //Input Batas Bilangan dari User
+    cout << "Masukkan Batas Bilangan : ";
+    cin >> batas13;
+
+    for (int i = 1; i <= batas13; i++)
+    {
+        //Input Bilangan yang ke-i
+        cout << "Masukkan bilangan ke-" << i << " = ";
+        cin >> bil13;
+
+        if (bil13 % 2 == 0) {
+            cout << bil13 << " = Bilangan Genap" << endl;
+            genap13++;
+            sumgenap13 += bil13;
+        }
+        else {
+            cout << bil13 << " = Bilangan Ganjil" << endl;
+            ganjil13++;
+            sumganjil13 += bil13;
+        }
+        sum13 += bil13;
+    }
+    cout << "\n";
+
+    //Membuat Statement IF Apabila Bilangan Genap Lebih Besar dari Nol
+    if (genap13 > 0) {
+        double ratagenap13 = double(sumgenap13) / genap13;
+        cout << "Rata-rata Bilangan Genap Adalah " << ratagenap13 << endl;
+    }
+    //Membuat Statement IF Apabila Bilangan Ganjil Lebih Besar dari Nol
+    if (ganjil13 > 0) {
+        double rataganjil13 = double(sumganjil13) / ganjil13;
+        cout << "Rata-rata Bilangan Ganjil Adalah " << rataganjil13 << endl;
+    }
+ 
+    //Menghitung Semua Bilangan (Ganjil dan Genap) lalu Membuat Rata-ratanya
+    ratasemua13 = double(sum13) / batas13;
+    cout << "Rata-rata Semua Bilangan Adalah " << ratasemua13 << endl;
+}
