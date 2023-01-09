@@ -1,0 +1,33 @@
+// BPD011_13_17.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+   Enters input via the keyboard
+
+    - Calculate and display the gross total for the number of cases of sweet oranges.
+    - Calculate and display the total tare for that number of cases of sweet oranges. Tara comes from crate etc.
+    - Compute and display the net total for the number of cases of sweet oranges. Net is gross minus tare.
+    - Calculate and display total tare in percent (to total gross). The tare percentage can be a fractional number.
+
+*/
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main()
+{
+    int bruto, tara, peti, total_bruto, total_tara, total_neto; float persen_tara;
+    cout << "Bruto (dalam satuan kg): ";
+    cin >> bruto;
+    cout << "Tara: ";
+    cin >> tara;
+    cout << "Jumlah Peti: ";
+    cin >> peti;
+    total_bruto = bruto * peti;
+    total_tara = tara * peti;
+    total_neto = total_bruto - total_tara;
+    persen_tara = float(tara) / bruto * 100;
+    cout << "Total Bruto = " << total_bruto << "\n";
+    cout << "Total Tara = " << total_tara << "\n";
+    cout << "Total Neto = " << total_neto << "\n";
+    cout << "Tara dalam persen = " << persen_tara << "%\n";
+    _getch();
+    return 0;
+}
