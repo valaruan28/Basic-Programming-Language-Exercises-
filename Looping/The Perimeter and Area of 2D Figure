@@ -1,0 +1,82 @@
+// Latihan130403_13.cpp : This file contains the 'main' function. Program execution begins and ends there.
+/*
+    Goal     : Make a Looping Program
+    Program : Displays Menu Options for two-dimentional figure and calculate the perimeter and area of two-dimentional figure
+*/
+
+#include <iostream>
+using namespace std;
+#include <conio.h>
+
+int main()
+{
+//Inisialisasi Variabel
+int pil;
+double keliling, luas;
+char jawab = 'y';
+
+//Melakukan Do While
+  do
+  {
+    //Menampilkan Menu Bangun Datar
+    cout << "Bangun Datar" << endl;
+    cout << "1. Persegi" << endl;
+    cout << "2. Persegi Panjang" << endl;
+    cout << "3. Lingkaran" << endl;
+
+    //Menampilkan Input Pilihan 
+    cout << "Pilihan : ";
+    cin >> pil; 
+    cout << "\n";
+    {
+        //Menampilkan Switch
+        switch (pil)
+        {
+            case 1:
+                cout << "Menu Persegi" << "\n";
+                cout << "Sisi : ";
+                double sisi;
+                cin >> sisi;
+                keliling = 4 * sisi, luas = sisi * sisi;
+                cout << "Keliling = " << keliling << "\n";
+                cout << "Luas = " << luas << "\n";
+                break;
+
+            case 2:
+                cout << "Menu Persegi Panjang" << "\n";
+                double pnjg, lbr;
+                cout << "Panjang : ";
+                cin >> pnjg;
+                cout << "Lebar : ";
+                cin >> lbr;
+                keliling = 2 * (pnjg + lbr);
+                luas = pnjg * lbr; 
+                cout << "Keliling = " << keliling << "\n";
+                cout << "Luas = " << luas << "\n";
+                break;
+
+             case 3:
+                cout << "Menu Lingkaran" << "\n";
+                double phi = 3.14, jarijari;
+                cout << "Jari-Jari : ";
+                cin >> jarijari;
+                keliling = phi * 2 * jarijari;
+                luas = phi * jarijari * jarijari;
+                cout << "Keliling = " << keliling << "\n";
+                cout << "Luas = " << luas << "\n";
+                break;
+        }
+        //Menampilkan Ulang dan Inputnya
+        cout << "Ulang ? ";
+        cin >> jawab;
+        system("cls");
+    }
+  } while (jawab != 't' && jawab != 'T');
+
+   //Menampilkan Output (t/T) dari Ulang
+   cout << "Proses Selesai. Terima kasih ! Silahkan Run untuk menggunakannya kembali.  \n";
+
+   return 0;
+}
+    
+   
